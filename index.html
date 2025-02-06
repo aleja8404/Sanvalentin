@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Para mi amor Nato</title>
+
+    <style>
+
+        body {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 100vh;
+
+            margin: 0;
+
+            background-color: #f3f3f3;
+
+            font-family: 'Arial', sans-serif;
+
+            overflow: hidden;
+
+            position: relative;
+
+        }
+
+        
+
+        .container {
+
+            text-align: center;
+
+            background-color: white;
+
+            padding: 2rem;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+            animation: float 3s ease-in-out infinite;
+
+            position: relative;
+
+            width: 30vw;
+
+            min-width: 200px;
+
+            height: auto;
+
+            min-height: 30vh;
+
+            margin: auto;
+
+        }
+
+
+
+        .container img {
+
+            width: 80%;
+
+            max-width: 200px;
+
+            height: auto;
+
+            margin-bottom: 1rem;
+
+            border-radius: 10px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+
+        .container::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(255, 255, 255, 0.7);
+
+            z-index: 1;
+
+            border-radius: 15px;
+
+        }
+
+
+
+        .container h1,
+
+        .container .buttons {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+
+        h1 {
+
+            color: #e91e63;
+
+            margin-bottom: 2rem;
+
+        }
+
+
+
+        .buttons {
+
+            display: flex;
+
+            gap: 1rem;
+
+            justify-content: center;
+
+        }
+
+
+
+        button {
+
+            padding: 1rem 2rem;
+
+            font-size: 1.2rem;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            transition: transform 0.3s ease;
+
+        }
+
+
+
+        #siBtn {
+
+            background-color: #e91e63;
+
+            color: white;
+
+        }
+
+
+
+        #noBtn {
+
+            background-color: #9e9e9e;
+
+            color: white;
+
+        }
+
+
+
+        button:hover {
+
+            transform: scale(1.1);
+
+        }
+
+
+
+        @keyframes float {
+
+            0% { transform: translateY(0px); }
+
+            50% { transform: translateY(-20px); }
+
+            100% { transform: translateY(0px); }
+
+        }
+
+
+
+        .floating-item {
+
+            position: fixed;
+
+            font-size: 24px;
+
+            user-select: none;
+
+            pointer-events: none;
+
+            animation: floatBackground 3s linear infinite;
+
+            opacity: 0.7;
+
+        }
+
+
+
+        @keyframes floatBackground {
+
+            0% {
+
+                transform: translateY(100vh) translateX(0);
+
+                opacity: 0.7;
+
+            }
+
+            100% {
+
+                transform: translateY(-100px) translateX(var(--random-x));
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+
+        .corazon-especial {
+
+            position: fixed;
+
+            font-size: 100px;
+
+            color: #e91e63;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-100%, -100%);
+
+            animation: crecer-y-explotar 3s forwards;
+
+            z-index: 2000;
+
+        }
+
+
+
+        .mensaje-amor {
+
+            position: fixed;
+
+            font-size: 60px;
+
+            color: #e91e63;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            opacity: 0;
+
+            z-index: 1000;
+
+        }
+
+
+
+        @keyframes crecer-y-explotar {
+
+            0% { transform: translate(-50%, -50%) scale(0); }
+
+            50% { transform: translate(-50%, -50%) scale(5); }
+
+            90% { transform: translate(-50%, -50%) scale(5.5); opacity: 1; }
+
+            100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
+
+        }
+
+
+
+        @keyframes aparecer-mensaje {
+
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        }
+
+
+
+        /* Estilos para el modal personalizado */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.5);
+
+            z-index: 2000;
+
+            animation: fadeIn 0.3s ease;
+
+        }
+
+
+
+        .modal-content {
+
+            position: fixed;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background-color: white;
+
+            padding: 2rem;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+
+            text-align: center;
+
+            min-width: 300px;
+
+            animation: slideIn 0.5s ease;
+
+        }
+
+
+
+        .modal-title {
+
+            color: #e91e63;
+
+            font-size: 24px;
+
+            margin-bottom: 1rem;
+
+        }
+
+
+
+        .modal-message {
+
+            font-size: 18px;
+
+            margin-bottom: 1.5rem;
+
+        }
+
+
+
+        .modal-button {
+
+            background-color: #e91e63;
+
+            color: white;
+
+            border: none;
+
+            padding: 0.8rem 1.5rem;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: transform 0.3s ease;
+
+        }
+
+
+
+        .modal-button:hover {
+
+            transform: scale(1.05);
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; }
+
+            to { opacity: 1; }
+
+        }
+
+
+
+        @keyframes slideIn {
+
+            from { 
+
+                transform: translate(-50%, -60%);
+
+                opacity: 0;
+
+            }
+
+            to { 
+
+                transform: translate(-50%, -50%);
+
+                opacity: 1;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img src="C:\Users\promotora.ibenedetti\OneDrive\Ultima\SanV\public\yo.png" alt="Valentine">
+
+        <h1><b>¿Quieres ser mi cita de San Valentin?</b></h1>
+
+        <div class="buttons">
+
+            <button id="siBtn" onclick="aceptar()">Sí</button>
+
+            <button id="noBtn" onmouseover="esquivar(this)">No</button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        // Crear varios elementos flotantes al cargar la página
+
+        window.onload = function() {
+
+            // Crear 10 elementos iniciales
+
+            for(let i = 0; i < 10; i++) {
+
+                crearElementoFlotante();
+
+            }
+
+            // Continuar creando elementos cada 500ms
+
+            setInterval(crearElementoFlotante, 500);
+
+        };
+
+
+
+        function mostrarModal(titulo, mensaje) {
+
+            const modal = document.createElement('div');
+
+            modal.className = 'modal';
+
+            modal.innerHTML = `
+
+                <div class="modal-content">
+
+                    <h2 class="modal-title">${titulo}</h2>
+
+                    <p class="modal-message">${mensaje}</p>
+
+                    <button class="modal-button" onclick="this.parentElement.parentElement.remove()">OK</button>
+
+                </div>
+
+            `;
+
+            document.body.appendChild(modal);
+
+            modal.style.display = 'block';
+
+        }
+
+
+
+        function aceptar() {
+
+            // Crear el corazón
+
+            const corazon = document.createElement('div');
+
+            corazon.className = 'corazon-especial';
+
+            corazon.textContent = '🩷';
+
+            document.body.appendChild(corazon);
+
+
+
+            // Crear el mensaje
+
+            const mensaje = document.createElement('div');
+
+            mensaje.className = 'mensaje-amor';
+
+            mensaje.innerHTML = '¡<strong>Te quiero</strong>!';
+
+            
+
+            // Esperar a que el corazón explote
+
+            setTimeout(() => {
+
+                corazon.remove();
+
+                document.body.appendChild(mensaje);
+
+                mensaje.style.animation = 'aparecer-mensaje 1s forwards';
+
+                
+
+                // Mostrar el modal personalizado después de la animación
+
+                setTimeout(() => {
+
+                    mensaje.remove();
+
+                    mostrarModal('¡Hola Bonita!', '¡Gracias por aceptar, nos vemos en nuestra cena romántica! 💖');
+
+                }, 2000);
+
+            }, 2000);
+
+        }
+
+
+
+        function esquivar(btn) {
+
+            const container = document.querySelector('.container');
+
+            const maxX = container.clientWidth - btn.offsetWidth;
+
+            const maxY = container.clientHeight - btn.offsetHeight;
+
+            
+
+            btn.style.position = 'absolute';
+
+            btn.style.left = Math.random() * maxX + 'px';
+
+            btn.style.top = Math.random() * maxY + 'px';
+
+        }
+
+
+
+        function crearElementoFlotante() {
+
+            const elementos = ['❤️', '💕', '💖', '💝', '💘', '😍', '💋'];
+
+            const elemento = document.createElement('div');
+
+            elemento.className = 'floating-item';
+
+            elemento.textContent = elementos[Math.floor(Math.random() * elementos.length)];
+
+            
+
+            // Posición inicial aleatoria en X
+
+            elemento.style.left = Math.random() * window.innerWidth + 'px';
+
+            
+
+            // Movimiento aleatorio en X durante la animación
+
+            const randomX = (Math.random() - 0.5) * 400; // Valor entre -200px y 200px
+
+            elemento.style.setProperty('--random-x', `${randomX}px`);
+
+            
+
+            document.body.appendChild(elemento);
+
+            
+
+            elemento.addEventListener('animationend', () => {
+
+                elemento.remove();
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
